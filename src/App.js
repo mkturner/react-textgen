@@ -29,8 +29,10 @@ function App() {
           Generate
         </button>
       </form>
-      <article className="lorem-text">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, voluptate!</p>
+      <article className='lorem-text'>
+        {text.map((item, index) => {
+          return <p key={index}>{item}</p>;
+        })}
       </article>
     </section>
   );
