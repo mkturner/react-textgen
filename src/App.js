@@ -8,13 +8,16 @@ function App() {
     // stop unnecessary page refresh
     e.preventDefault();
     let amount = parseInt(count);
-    console.log(amount);
+    // perform validation on count:
+    // should not be less than 1
     if (count <= 0) {
       amount = 1;
     }
+    // should not be more than 8
     if (count > 8) {
       amount = 8;
     }
+    // set text state to specified number of paragraphs
     setText(data.slice(0, amount));
   };
 
@@ -29,6 +32,7 @@ function App() {
           name='amount'
           id='amount'
           value={count}
+          // set count state to value of captured event
           onChange={(e) => setCount(e.target.value)}
         />
         {/* Submit button */}
@@ -37,8 +41,9 @@ function App() {
         </button>
       </form>
       <article className='lorem-text'>
+        {/* return a paragraph for each paragraph in sliced data */}
         {text.map((item, index) => {
-          return <p key={index}>{item}</p>;
+          return <p key={index}>{item}</p>;;
         })}
       </article>
     </section>
